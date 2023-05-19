@@ -21,7 +21,7 @@
                 <!-- title -->
                 <h1
                   class="mt-4 text-sm">
-                    PRESENSI SHOLAT SMP NEGERI 3 JAKARTA
+                    PRESENSI SHOLAT SMPN 19 JAKARTA SELATAN
                 </h1>
 
                 <!-- swither -->
@@ -47,7 +47,7 @@
                 <div
                   class="floating_label relative w-full mt-12">
                     <input 
-                      type="text" name="username" id="" placeholder="username" autocomplete="off"
+                      type="text" name="username" id="username" placeholder="username" autocomplete="off"
                       class="w-full relative z-10 px-4 py-3 bg-transparent focus:outline-none placeholder-transparent border border-neutral-500 rounded">
                     <span
                       class="absolute -z-0 top-3 left-4 text-neutral-500 duration-300">
@@ -58,7 +58,7 @@
                 <div
                   class="floating_label relative w-full mt-8">
                     <input 
-                      type="password" name="password" id="" placeholder="password"
+                      type="password" name="password" id="password" placeholder="password"
                       class="w-full relative z-10 px-4 py-3 bg-transparent focus:outline-none placeholder-transparent border border-neutral-500 rounded">
                     <span
                       class="absolute -z-0 top-3 left-4 text-neutral-500 duration-300">

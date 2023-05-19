@@ -202,6 +202,8 @@ import { Field, Form }          from "vee-validate";
 import TitlePage    from '@/components/TitlePage.vue'
 import { ref }      from 'vue'
 import { useStore } from "vuex"
+import { toast }    from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export default {
   name: 'PresensiView',
@@ -229,13 +231,23 @@ export default {
     });
 
     // filter computed
-    let limit    = ref(40);
+    let limit    = ref(50);
     let limitVal = computed({
       get() {
         return limit.value
       },
       set(val) {
-        limit.value = val
+        if (val > 100) {
+          limit.value = 100
+
+          toast.warning("hanya boleh menampilkan 100 siswa!", {
+              position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+        else {
+          limit.value = val
+        }
+
         filterOnChange();
       }
     })

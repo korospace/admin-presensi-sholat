@@ -19,7 +19,7 @@ export default {
         DO_ADD: function ({ commit,getters,dispatch,rootState },form) {
 
             // show loading
-            commit("loadingux/SET_DATA_LOADING",{show:true,text:'login'},{ root: true });
+            commit("loadingux/SET_DATA_LOADING",{show:true,text:'menambahkan'},{ root: true });
 
             axios
                 .post(`${rootState.apiurl}/api/v1/${getters.privilegeGetter}`,form,{
@@ -79,7 +79,7 @@ export default {
         DO_UPDATE: function ({ commit,getters,dispatch,rootState },form) {
 
             // show loading
-            commit("loadingux/SET_DATA_LOADING",{show:true,text:'login'},{ root: true });
+            commit("loadingux/SET_DATA_LOADING",{show:true,text:'update'},{ root: true });
 
             axios
                 .put(`${rootState.apiurl}/api/v1/${getters.privilegeGetter}`,form,{

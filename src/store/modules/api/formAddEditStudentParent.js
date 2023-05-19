@@ -22,7 +22,7 @@ export default {
         DO_ADD: function ({ commit,dispatch,rootState },form) {
 
             // show loading
-            commit("loadingux/SET_DATA_LOADING",{show:true,text:'login'},{ root: true });
+            commit("loadingux/SET_DATA_LOADING",{show:true,text:'menambahkan'},{ root: true });
 
             axios
                 .post(`${rootState.apiurl}/api/v1/student`,form,{
@@ -95,7 +95,7 @@ export default {
         DO_UPDATE: function ({ commit,getters,rootState },form) {
 
             // show loading
-            commit("loadingux/SET_DATA_LOADING",{show:true,text:'login'},{ root: true });
+            commit("loadingux/SET_DATA_LOADING",{show:true,text:'update'},{ root: true });
 
             axios
                 .put(`${rootState.apiurl}/api/v1/${getters.privilegeGetter}`,form,{

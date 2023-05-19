@@ -87,7 +87,11 @@
                       </thead>
                       <tbody  v-if="arrScore != null">
                         <tr v-for="(x,i) in arrScore" :key="x">
-                          <td class="py-3 px-4 border-r border-neutral-500">{{ ++i }}</td>
+                          <td
+                              class="py-3 px-4 border-r border-neutral-500"
+                              :class="{'bg-red-400/40':x.active==0}">
+                                {{ ++i }}
+                            </td>
                           <td class="px-4 border-r border-neutral-500">{{ x.nama_lengkap }}</td>
                           <td class="px-4 border-r border-neutral-500">{{ x.nis }}</td>
                           <td class="px-4 border-r border-neutral-500">{{ x.kelas }} - {{ x.sub_kelas }}</td>
@@ -123,6 +127,8 @@ import TitlePage     from '@/components/TitlePage.vue'
 import FormDateRange from '@/components/FormDateRange.vue'
 import { ref }       from 'vue'
 import { useStore }  from "vuex"
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export default {
   name: 'ScoreView',
@@ -165,7 +171,17 @@ export default {
         return limit.value
       },
       set(val) {
-        limit.value = val
+        if (val > 500) {
+          limit.value = 500
+
+          toast.warning("hanya boleh menampilkan 500 siswa!", {
+              position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+        else {
+          limit.value = val
+        }
+
         filterOnChange();
       }
     })

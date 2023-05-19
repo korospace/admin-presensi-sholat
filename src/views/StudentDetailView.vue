@@ -77,6 +77,11 @@
                   <td>{{ historySholat.tidak_sholat }}</td>
                 </tr>
                 <tr class="text-left align-top">
+                  <td>belum terkonfirmasi</td> 
+                  <td class="px-2">:</td>
+                  <td>{{ historySholat.unconfirm }}</td>
+                </tr>
+                <tr class="text-left align-top">
                   <td>total sholat</td> 
                   <td class="px-2">:</td>
                   <td>{{ historySholat.total_sholat }}</td>

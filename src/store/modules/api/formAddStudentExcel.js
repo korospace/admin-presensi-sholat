@@ -84,7 +84,7 @@ export default {
         SEND_FILE: function ({ commit,rootState,dispatch },form) {
 
             // show loading
-            commit("loadingux/SET_DATA_LOADING",{show:true,text:'login'},{ root: true });
+            commit("loadingux/SET_DATA_LOADING",{show:true,text:'import'},{ root: true });
 
             axios
                 .post(`${rootState.apiurl}/api/v1/student/excel`,form,{

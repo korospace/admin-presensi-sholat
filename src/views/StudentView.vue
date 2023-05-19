@@ -88,31 +88,36 @@
                         </tr>
                       </thead>
                       <tbody  v-if="arrSiswa != null">
-                        <tr v-for="(x,i) in arrSiswa" :key="x">
-                          <td class="py-3 px-4 border-r border-neutral-500">{{ ++i }}</td>
-                          <td class="px-4 border-r border-neutral-500">{{ x.nama_lengkap }}</td>
-                          <td class="px-4 border-r border-neutral-500">{{ x.nis }}</td>
-                          <td class="px-4 border-r border-neutral-500">{{ x.kelas }} - {{ x.sub_kelas }}</td>
-                          <td class="px-4">
-                            <div class="w-full h-full flex justify-center items-center text-neutral-200">
-                              <router-link 
-                                :to="{name:'student detail',query:{nis:x.nis} }" 
-                                class="h-6 px-1 flex justify-center items-center bg-blue-600 hover:bg-blue-500 rounded-sm">
-                                  <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"></path></svg>
-                              </router-link>
-                              <button 
-                                v-if="isAdmin"
-                                @click="showForm($event,x)"
-                                class="h-6 px-1 mx-1 flex justify-center items-center bg-yellow-600 hover:bg-yellow-500 rounded-sm">
-                                  <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M5,3C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19H5V5H12V3H5M17.78,4C17.61,4 17.43,4.07 17.3,4.2L16.08,5.41L18.58,7.91L19.8,6.7C20.06,6.44 20.06,6 19.8,5.75L18.25,4.2C18.12,4.07 17.95,4 17.78,4M15.37,6.12L8,13.5V16H10.5L17.87,8.62L15.37,6.12Z"></path></svg>
-                              </button>
-                              <button
-                                v-if="isAdmin"
-                                @click="deleteSiswa($event,x.id)" 
-                                class="h-6 px-1 flex justify-center items-center bg-red-600 hover:bg-red-500 rounded-sm">
-                                  <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"></path></svg>
-                              </button>
-                            </div>
+                        <tr 
+                          v-for="(x,i) in arrSiswa" :key="x">
+                            <td
+                              class="py-3 px-4 border-r border-neutral-500"
+                              :class="{'bg-red-400/40':x.active==0}">
+                                {{ ++i }}
+                            </td>
+                            <td class="px-4 border-r border-neutral-500">{{ x.nama_lengkap }}</td>
+                            <td class="px-4 border-r border-neutral-500">{{ x.nis }}</td>
+                            <td class="px-4 border-r border-neutral-500">{{ x.kelas }} - {{ x.sub_kelas }}</td>
+                            <td class="px-4">
+                              <div class="w-full h-full flex justify-center items-center text-neutral-200">
+                                <router-link 
+                                  :to="{name:'student detail',query:{nis:x.nis} }" 
+                                  class="h-6 px-1 flex justify-center items-center bg-blue-600 hover:bg-blue-500 rounded-sm">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"></path></svg>
+                                </router-link>
+                                <button 
+                                  v-if="isAdmin"
+                                  @click="showForm($event,x)"
+                                  class="h-6 px-1 mx-1 flex justify-center items-center bg-yellow-600 hover:bg-yellow-500 rounded-sm">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M5,3C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19H5V5H12V3H5M17.78,4C17.61,4 17.43,4.07 17.3,4.2L16.08,5.41L18.58,7.91L19.8,6.7C20.06,6.44 20.06,6 19.8,5.75L18.25,4.2C18.12,4.07 17.95,4 17.78,4M15.37,6.12L8,13.5V16H10.5L17.87,8.62L15.37,6.12Z"></path></svg>
+                                </button>
+                                <button
+                                  v-if="isAdmin"
+                                  @click="deleteSiswa($event,x.id)" 
+                                  class="h-6 px-1 flex justify-center items-center bg-red-600 hover:bg-red-500 rounded-sm">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block"><path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z"></path></svg>
+                                </button>
+                              </div>
                           </td>
                         </tr>
                       </tbody>
@@ -147,6 +152,8 @@ import FormAddEdit  from '@/components/FormAddEditStudentParent.vue'
 import { ref }      from 'vue'
 import { useStore } from "vuex"
 import Swal         from 'sweetalert2';
+import { toast }    from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export default {
   name: 'StudentView',
@@ -176,7 +183,17 @@ export default {
         return limit.value
       },
       set(val) {
-        limit.value = val
+        if (val > 100) {
+          limit.value = 100
+
+          toast.warning("hanya boleh menampilkan 100 siswa!", {
+              position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+        else {
+          limit.value = val
+        }
+
         filterOnChange();
       }
     })

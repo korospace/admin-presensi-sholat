@@ -88,6 +88,7 @@ export default {
                 var url = window.URL.createObjectURL(data),
                 anchor = document.createElement("a");
                 anchor.href = url;
+                anchor.setAttribute('target', '_blank');
                 anchor.download = "nilai_siswa.xlsx";
                 anchor.click();
             

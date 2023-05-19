@@ -28,7 +28,7 @@ export default {
             }
 
             // show loading
-            commit("loadingux/SET_DATA_LOADING",{show:true,text:'login'},{ root: true });
+            commit("loadingux/SET_DATA_LOADING",{show:true,text:'update'},{ root: true });
 
             axios
                 .put(`${rootState.apiurl}/api/v1/profile`,form,{
