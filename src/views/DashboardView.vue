@@ -9,7 +9,7 @@
           id="container_dashboard"
           class="min-h-screen max-h-screen w-full bg-neutral-900/50 overflow-hidden">
             
-            <div class="min-h-screen max-h-screen w-full max-w-7xl flex m-auto overflow-hidden">
+            <div class="min-h-screen max-h-screen w-full max-w-10xl flex m-auto overflow-hidden">
             
               <!-- aside bar -->
               <dashboard-aside />

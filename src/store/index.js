@@ -25,7 +25,7 @@ import settingapi      from './modules/api/setting'
 
 export default createStore({
   state: {
-    apiurl : "https://api-presensi-sholat.up.railway.app",
+    apiurl : "https://sholat.up.railway.app",
     // apiurl : "http://127.0.0.1:8000",
   },
   getters: {

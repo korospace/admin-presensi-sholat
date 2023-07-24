@@ -135,12 +135,13 @@
                                             as="select"
                                             name="status"
                                             :value="sholat.status"
-                                            class="w-full h-8 px-1 text-neutral-400 outline-none border bg-transparent rounded"
+                                            class="w-full h-8 px-1 text-neutral-400 outline-none border rounded"
                                             :class="{
                                               'border-red-700 outline-red-500':errors.status!=null,
                                               'border-neutral-400':errors.status==null,
                                               'text-neutral-400':sholat.status==null,
                                               'text-neutral-800':sholat.status!=null,
+                                              'bg-transparent':sholat.status==null,
                                               'bg-green-300': sholat.status == 'berjamaah',
                                               'bg-yellow-300': sholat.status == 'munfarid',
                                               'bg-red-300': sholat.status == 'tidak sholat',
